@@ -9,9 +9,9 @@ import view.*;
 public class CadastroController {
 
     private TelaCadastro view;
-    private Jframe frame;
+    private Janela frame;
 
-    public CadastroController(TelaCadastro view, Jframe frame) {
+    public CadastroController(TelaCadastro view, Janela frame) {
         this.view = view;
         this.frame = frame;
         initEventos();

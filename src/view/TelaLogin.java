@@ -33,7 +33,6 @@ public class TelaLogin extends JPanel {
         lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         add(lblNewLabel, "cell 1 2 3 1,alignx center");
 
-        // Nome
         JLabel lblNome = new JLabel("Nome:");
         lblNome.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         add(lblNome, "cell 1 4,alignx right");
@@ -42,7 +41,6 @@ public class TelaLogin extends JPanel {
         add(tfNome, "cell 3 4,growx");
         tfNome.setColumns(10);
 
-        // CPF
         JLabel lblCpf = new JLabel("CPF:");
         lblCpf.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         add(lblCpf, "cell 1 5,alignx right");
@@ -51,7 +49,6 @@ public class TelaLogin extends JPanel {
         add(tfCpf, "cell 3 5,growx");
         tfCpf.setColumns(10);
 
-        // Botões
         btEntrar = new JButton("Entrar");
         btEntrar.setFont(new Font("Times New Roman", Font.PLAIN, 11));
         add(btEntrar, "cell 1 7,alignx center");
@@ -61,7 +58,6 @@ public class TelaLogin extends JPanel {
         add(btCadastrar, "cell 3 7,alignx center");
     }
 
-    // Getters para o Controller conseguir ler os dados e ouvir os cliques
     public JTextField getTfNome() { return tfNome; }
     public JTextField getTfCpf() { return tfCpf; }
     public JButton getBtEntrar() { return btEntrar; }

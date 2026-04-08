@@ -9,9 +9,9 @@ import view.*;
 public class CarrinhoController {
 
     private TelaCarrinho view;
-    private Jframe frame;
+    private Janela frame;
 
-    public CarrinhoController(TelaCarrinho view, Jframe frame) {
+    public CarrinhoController(TelaCarrinho view, Janela frame) {
         this.view = view;
         this.frame = frame;
 
@@ -21,7 +21,6 @@ public class CarrinhoController {
 
     private void initEventos() {
 
-        // �?� REMOVER ITEM
         view.getbtRemover().addActionListener(e -> {
 
             int linha = view.gettable().getSelectedRow();
@@ -32,7 +31,6 @@ public class CarrinhoController {
             }
         });
 
-        // 💰 PAGAR
         view.getbtPagar().addActionListener(e -> {
 
             if (Carrinho.itens.isEmpty()) {
@@ -46,7 +44,6 @@ public class CarrinhoController {
             carregarCarrinho();
         });
 
-        // 🧾 NOTA FISCAL
         view.getbtNota().addActionListener(e -> {
 
             if (Carrinho.itens.isEmpty()) {
@@ -83,8 +80,7 @@ public class CarrinhoController {
 
             JOptionPane.showMessageDialog(view, nota.toString());
         });
-
-        // 🔙 VOLTAR
+        
         view.getbtVoltar().addActionListener(e -> {
             TelaProdutos tela = new TelaProdutos();
             new ProdutosController(tela, frame);
@@ -110,7 +106,6 @@ public class CarrinhoController {
             total += p.getPreco() * p.getQuantidade();
         }
 
-        // 💰 MOSTRAR TOTAL
         view.gettotal().setText("R$ " + total);
     }
 }

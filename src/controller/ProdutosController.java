@@ -11,9 +11,9 @@ import java.util.List;
 public class ProdutosController {
 
     private TelaProdutos view;
-    private Jframe frame;
+    private Janela frame;
 
-    public ProdutosController(TelaProdutos view, Jframe frame) {
+    public ProdutosController(TelaProdutos view, Janela frame) {
         this.view = view;
         this.frame = frame;
         carregarTabela();

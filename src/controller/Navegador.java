@@ -2,13 +2,13 @@ package controller;
 
 import javax.swing.JPanel;
 
-import view.Jframe;
+import view.Janela;
 
 public class Navegador {
 
-    private static Jframe frame;
+    private static Janela frame;
 
-    public static void setFrame(Jframe framePrincipal) {
+    public static void setFrame(Janela framePrincipal) {
         frame = framePrincipal;
     }
 

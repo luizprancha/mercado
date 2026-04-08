@@ -4,7 +4,7 @@ import javax.swing.SwingUtilities;
 
 import controller.LoginController;
 import controller.Navegador;
-import view.Jframe;
+import view.Janela;
 import view.TelaLogin;
 
 public class Main {
@@ -13,7 +13,7 @@ public class Main {
 
 	        SwingUtilities.invokeLater(() -> {
 
-	            Jframe frame = new Jframe();
+	            Janela frame = new Janela();
 
 	            
 	            Navegador.setFrame(frame);

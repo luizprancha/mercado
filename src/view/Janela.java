@@ -4,11 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Jframe extends JFrame {
+public class Janela extends JFrame {
 
     private JPanel contentPane;
 
-    public Jframe() {
+    public Janela() {
         setTitle("Sistema de Vendas MVC");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 600, 500);
@@ -17,6 +17,6 @@ public class Jframe extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
 
-        setLocationRelativeTo(null); // centraliza na tela
+        setLocationRelativeTo(null); 
     }
 }

@@ -11,9 +11,9 @@ import java.util.List;
 public class CadastroProdutoController {
 
     private TelaCadastroProdutos view;
-    private Jframe frame;
+    private Janela frame;
 
-    public CadastroProdutoController(TelaCadastroProdutos view, Jframe frame) {
+    public CadastroProdutoController(TelaCadastroProdutos view, Janela frame) {
         this.view = view;
         this.frame = frame;
 
@@ -43,7 +43,6 @@ public class CadastroProdutoController {
             }
         });
 
-        // 🔴 SELECIONAR NA TABELA → PREENCHER CAMPOS
         view.gettable().getSelectionModel().addListSelectionListener(e -> {
 
             int linha = view.gettable().getSelectedRow();
@@ -60,7 +59,6 @@ public class CadastroProdutoController {
             }
         });
 
-        // 🟡 EDITAR
         view.getbtEditar().addActionListener(e -> {
 
             int linha = view.gettable().getSelectedRow();
@@ -91,7 +89,6 @@ public class CadastroProdutoController {
             }
         });
 
-        // �?� REMOVER
         view.getbtRemover().addActionListener(e -> {
 
             int linha = view.gettable().getSelectedRow();
@@ -111,7 +108,6 @@ public class CadastroProdutoController {
             limparCampos();
         });
 
-        // 🔙 VOLTAR
         view.getbtVoltar().addActionListener(e -> {
             TelaLogin tela = new TelaLogin();
             new LoginController(tela, frame);

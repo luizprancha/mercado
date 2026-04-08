@@ -10,9 +10,9 @@ import view.*;
 public class LoginController {
 
     private TelaLogin view;
-    private Jframe frame;
+    private Janela frame;
 
-    public LoginController(TelaLogin view, Jframe frame) {
+    public LoginController(TelaLogin view, Janela frame) {
         this.view = view;
         this.frame = frame;
 
@@ -21,7 +21,6 @@ public class LoginController {
 
     private void initEventos() {
 
-        // �? BOTÃO ENTRAR
         view.getBtEntrar().addActionListener(e -> {
 
             String nome = view.getTfNome().getText();
@@ -34,12 +33,10 @@ public class LoginController {
                 return;
             }
 
-            // 🔥 SALVA USU�?RIO LOGADO
             Sessao.setUsuario(usuario);
 
             JOptionPane.showMessageDialog(view, "Bem-vindo " + nome);
 
-            // 🔀 REDIRECIONAMENTO
             if (usuario.isAdmin()) {
 
                 TelaCadastroProdutos tela = new TelaCadastroProdutos();
@@ -54,7 +51,6 @@ public class LoginController {
             }
         });
 
-        // �? BOTÃO CADASTRAR
         view.getBtCadastrar().addActionListener(e -> {
 
             TelaCadastro tela = new TelaCadastro();
