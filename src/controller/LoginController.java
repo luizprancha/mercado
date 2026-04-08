@@ -21,7 +21,7 @@ public class LoginController {
 
     private void initEventos() {
 
-        view.getBtEntrar().addActionListener(e -> {
+        view.btEntrarAction(e ->{
 
             String nome = view.getTfNome().getText();
             String cpf = view.getTfCpf().getText();
@@ -49,9 +49,9 @@ public class LoginController {
                 new ProdutosController(tela, frame);
                 Navegador.trocarTela(tela);
             }
-        });
+        }); 
 
-        view.getBtCadastrar().addActionListener(e -> {
+        view.btCadastrarAction(e -> {
 
             TelaCadastro tela = new TelaCadastro();
             new CadastroController(tela, frame);

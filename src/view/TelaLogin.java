@@ -5,6 +5,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -57,9 +58,18 @@ public class TelaLogin extends JPanel {
         btCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 11));
         add(btCadastrar, "cell 3 7,alignx center");
     }
-
+    
+    public void btEntrarAction(ActionListener al) {
+    	btEntrar.addActionListener(al);
+    }
+    
+    public void btCadastrarAction(ActionListener al) {
+    	btCadastrar.addActionListener(al);
+    }
+    
     public JTextField getTfNome() { return tfNome; }
-    public JTextField getTfCpf() { return tfCpf; }
-    public JButton getBtEntrar() { return btEntrar; }
-    public JButton getBtCadastrar() { return btCadastrar; }
+    
+    public JTextField getTfCpf() { return tfCpf; 
+    }
+    
 }
