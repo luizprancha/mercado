@@ -19,10 +19,10 @@ public class CadastroController {
 
     private void initEventos() {
 
-        view.getbtnCadastrar().addActionListener(e -> {
+        view.telacadastrar(e -> {
 
-            String nome = view.getTfNome().getText();
-            String cpf = view.getTfCpf().getText();
+            String nome = view.getTfNome();
+            String cpf = view.getTfCpf();
 
             if (nome.isEmpty() || cpf.isEmpty()) {
                 JOptionPane.showMessageDialog(view, "Preencha todos os campos!");
@@ -51,7 +51,9 @@ public class CadastroController {
                 ex.printStackTrace();
             }
         });
-        view.getbtnVoltar().addActionListener(e -> {
+        
+        
+        view.voltar(e -> {
             TelaLogin tela = new TelaLogin();
             new LoginController(tela, frame);
             Navegador.trocarTela(tela);

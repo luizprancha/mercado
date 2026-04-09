@@ -23,8 +23,7 @@ public class CadastroProdutoController {
 
     private void initEventos() {
 
-        // ➕ ADICIONAR
-        view.getbtAdicionar().addActionListener(e -> {
+        view.btAdicionarAction(e -> {
 
             try {
                 String nome = view.getTfProduto().getText();
@@ -45,21 +44,24 @@ public class CadastroProdutoController {
 
         view.gettable().getSelectionModel().addListSelectionListener(e -> {
 
-            int linha = view.gettable().getSelectedRow();
+            if (!e.getValueIsAdjusting()) {
 
-            if (linha != -1) {
+                int linha = view.gettable().getSelectedRow();
 
-                String nome = view.gettable().getValueAt(linha, 1).toString();
-                String preco = view.gettable().getValueAt(linha, 2).toString();
-                String quantidade = view.gettable().getValueAt(linha, 3).toString();
+                if (linha != -1) {
 
-                view.getTfProduto().setText(nome);
-                view.getTfPreco().setText(preco);
-                view.getTfQuantidade().setText(quantidade);
+                    String nome = view.gettable().getValueAt(linha, 1).toString();
+                    String preco = view.gettable().getValueAt(linha, 2).toString();
+                    String quantidade = view.gettable().getValueAt(linha, 3).toString();
+
+                    view.getTfProduto().setText(nome);
+                    view.getTfPreco().setText(preco);
+                    view.getTfQuantidade().setText(quantidade);
+                }
             }
         });
 
-        view.getbtEditar().addActionListener(e -> {
+        view.btEditarAction(e -> {
 
             int linha = view.gettable().getSelectedRow();
 
@@ -89,7 +91,7 @@ public class CadastroProdutoController {
             }
         });
 
-        view.getbtRemover().addActionListener(e -> {
+        view.btRemoverAction(e -> {
 
             int linha = view.gettable().getSelectedRow();
 
@@ -108,7 +110,7 @@ public class CadastroProdutoController {
             limparCampos();
         });
 
-        view.getbtVoltar().addActionListener(e -> {
+        view.btVoltarAction(e -> {
             TelaLogin tela = new TelaLogin();
             new LoginController(tela, frame);
             Navegador.trocarTela(tela);
@@ -133,7 +135,7 @@ public class CadastroProdutoController {
     }
 
     private void limparCampos() {
-        view.getTfProduto().setText("");
+    	view.limparCampos();
         view.getTfPreco().setText("");
         view.getTfQuantidade().setText("");
     }

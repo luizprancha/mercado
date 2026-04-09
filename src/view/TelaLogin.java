@@ -59,17 +59,20 @@ public class TelaLogin extends JPanel {
         add(btCadastrar, "cell 3 7,alignx center");
     }
     
-    public void btEntrarAction(ActionListener al) {
+    public void entrar(ActionListener al) {
     	btEntrar.addActionListener(al);
     }
     
-    public void btCadastrarAction(ActionListener al) {
+    public void cadastrar(ActionListener al) {
     	btCadastrar.addActionListener(al);
     }
     
-    public JTextField getTfNome() { return tfNome; }
+    public String getNome() {
+		return tfNome.getText();
+	}
     
-    public JTextField getTfCpf() { return tfCpf; 
+    public String getCpf() { 
+    	return tfCpf.getText(); 
     }
     
 }

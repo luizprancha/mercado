@@ -21,7 +21,7 @@ public class CarrinhoController {
 
     private void initEventos() {
 
-        view.getbtRemover().addActionListener(e -> {
+        view.btRemoverAction(e -> {
 
             int linha = view.gettable().getSelectedRow();
 
@@ -31,7 +31,7 @@ public class CarrinhoController {
             }
         });
 
-        view.getbtPagar().addActionListener(e -> {
+        view.btPagarAction(e -> {
 
             if (Carrinho.itens.isEmpty()) {
                 JOptionPane.showMessageDialog(view, "Carrinho vazio!");
@@ -44,7 +44,7 @@ public class CarrinhoController {
             carregarCarrinho();
         });
 
-        view.getbtNota().addActionListener(e -> {
+        view.btNotaAction(e -> {
 
             if (Carrinho.itens.isEmpty()) {
                 JOptionPane.showMessageDialog(view, "Carrinho vazio!");
@@ -81,7 +81,7 @@ public class CarrinhoController {
             JOptionPane.showMessageDialog(view, nota.toString());
         });
         
-        view.getbtVoltar().addActionListener(e -> {
+        view.btVoltarAction(e -> {
             TelaProdutos tela = new TelaProdutos();
             new ProdutosController(tela, frame);
             Navegador.trocarTela(tela);

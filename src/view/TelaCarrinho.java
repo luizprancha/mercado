@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
@@ -69,12 +71,24 @@ public class TelaCarrinho extends JPanel {
 		add(btVoltar, "cell 3 8,growx");
 	}
 	
+	public void btRemoverAction(ActionListener al) {
+		btRemover.addActionListener(al);
+	}
+	
+	public void btNotaAction(ActionListener al) {
+		btNota.addActionListener(al);
+	}
+	
+	public void btPagarAction(ActionListener al) {
+		btPagar.addActionListener(al);
+	}
+	
+	public void btVoltarAction(ActionListener al) {
+		btVoltar.addActionListener(al);
+	}
+	
 	public JScrollPane getscrollPane() {return scrollPane; }
 	public JTable gettable() { return table; }
-	public JButton getbtRemover() { return btRemover; }
-	public JButton getbtNota() { return btNota; }
-	public JButton getbtPagar() { return btPagar; }
-	public JButton getbtVoltar() { return btVoltar; }
 	public JLabel gettotal() { return total; }
 		
 	}

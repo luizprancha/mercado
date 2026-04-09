@@ -21,10 +21,10 @@ public class LoginController {
 
     private void initEventos() {
 
-        view.btEntrarAction(e ->{
+        view.entrar(e ->{
 
-            String nome = view.getTfNome().getText();
-            String cpf = view.getTfCpf().getText();
+            String nome = view.getNome();
+            String cpf = view.getCpf();
 
             Usuario usuario = UsuarioDAO.buscar(nome, cpf);
 
@@ -51,7 +51,7 @@ public class LoginController {
             }
         }); 
 
-        view.btCadastrarAction(e -> {
+        view.cadastrar(e -> {
 
             TelaCadastro tela = new TelaCadastro();
             new CadastroController(tela, frame);

@@ -7,6 +7,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
+import java.awt.TextField;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -88,14 +91,35 @@ public class TelaCadastroProdutos extends JPanel {
 		add(btVoltar, "cell 2 9");
 
 	}
-	public JTextField getTfProduto() { return tfProduto; }
+	
+	public void btVoltarAction(ActionListener al) {
+    	btVoltar.addActionListener(al);
+    }
+	
+	public void btRemoverAction(ActionListener al) {
+    	btRemover.addActionListener(al);
+    }
+	
+	public void btEditarAction(ActionListener al) {
+    	btEditar.addActionListener(al);
+    }
+	
+	public void btAdicionarAction(ActionListener al) {
+    	btAdicionar.addActionListener(al);
+    }
+	
+	public JTextField getTfProduto() { 
+		return tfProduto; 
+	}
+	
+	public void limparCampos() {
+	    tfProduto.setText("");
+	}
+	
     public JTextField getTfPreco() { return tfPreco; }
     public JTextField getTfQuantidade() { return tfQuantidade; }
-    public JButton getbtAdicionar() { return btAdicionar; }
-    public JButton getbtRemover() { return btRemover; }
-    public JButton getbtEditar() { return btEditar; }
     public JTable gettable() {return table; }
     public JScrollPane getscrollPane() {return scrollPane; }
-    public JButton getbtVoltar() { return btVoltar; }
+    
 
 }

@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class TelaCadastro extends JPanel {
 
@@ -51,11 +52,24 @@ public class TelaCadastro extends JPanel {
         btnCadastrar = new JButton("Cadastrar");
         add(btnCadastrar, "cell 2 4,alignx center");
     }
-
-    public JTextField getTfNome() { return tfNome; }
-    public JTextField getTfCpf() { return tfCpf; }
-    public JButton getbtnCadastrar() { return btnCadastrar; }
+    
+    public void telacadastrar(ActionListener al) {
+    	btnCadastrar.addActionListener(al);
+    }
+    
+    public void voltar(ActionListener al) {
+    	btnVoltar.addActionListener(al);
+    }
+    
+    public String getTfNome() { 
+    	return tfNome.getText(); 
+    }
+    
+    public String getTfCpf() { 
+    	return tfCpf.getText(); 
+    }
+    
     public JRadioButton getRbSim() { return rbSim; }
     public JRadioButton getRbNao() { return rbNao; }
-    public JButton getbtnVoltar() { return btnVoltar; }
+    
 }
