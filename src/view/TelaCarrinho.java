@@ -26,15 +26,14 @@ public class TelaCarrinho extends JPanel {
 	 * Create the panel.
 	 */
 	public TelaCarrinho() {
-		setBackground(new Color(244, 247, 246));
+		setBackground(new Color(245, 235, 220));
 		setLayout(new MigLayout("", "[grow][grow][grow][grow][grow]", "[grow][grow][grow][grow 20][::20px,grow 20][::20px,grow 20][::20px,grow 20][::20px,grow 20][][grow][grow]"));
 		
-		JLabel lblNewLabel = new JLabel("Carrinho de compras");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+		JLabel lblNewLabel = new JLabel("Carrinho de compras:");
+		lblNewLabel.setFont(new Font("Alef", Font.BOLD, 25));
 		add(lblNewLabel, "cell 1 1");
 		
 		table = new JTable();
-		table.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null},
@@ -47,25 +46,38 @@ public class TelaCarrinho extends JPanel {
 		add(scrollPane, "cell 1 3 1 7,grow");
 		
 		JLabel lblNewLabel_1 = new JLabel("Total a pagar:");
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		lblNewLabel_1.setFont(new Font("Alef", Font.PLAIN, 12));
 		add(lblNewLabel_1, "cell 2 4,alignx trailing");
 		
 		total = new JLabel("");
 		add(total, "cell 3 4");
 		
 		btRemover = new JButton("Remover do carrinho");
-		btRemover.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btRemover.setForeground(new Color(255, 255, 255));
+		btRemover.setFont(new Font("Alef", Font.BOLD, 10));
+		btRemover.setBackground(new Color(8, 69, 145));
+		btRemover.setBorderPainted(false);
 		add(btRemover, "cell 3 5,growx");
 		
 		btNota = new JButton("Emitir nota fiscal e pagar");
-		btNota.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btNota.setForeground(new Color(255, 255, 255));
+		btNota.setFont(new Font("Alef", Font.BOLD, 10));
+		btNota.setBackground(new Color(8, 69, 145));
+		btNota.setBorderPainted(false);
 		add(btNota, "cell 3 6,growx");
 		
 		btPagar = new JButton("Pagar");
-		btPagar.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btPagar.setForeground(new Color(255, 255, 255));
+		btPagar.setFont(new Font("Alef", Font.BOLD, 10));
+		btPagar.setBackground(new Color(8, 69, 145));
+		btPagar.setBorderPainted(false);
 		add(btPagar, "cell 3 7,growx");
 		
 		btVoltar = new JButton("Voltar");
+		btVoltar.setForeground(new Color(255, 255, 255));
+		btVoltar.setFont(new Font("Alef", Font.BOLD, 10));
+		btVoltar.setBackground(new Color(8, 69, 145));
+        btVoltar.setBorderPainted(false);
 		add(btVoltar, "cell 3 8,growx");
 	}
 	

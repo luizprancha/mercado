@@ -28,11 +28,11 @@ public class TelaCadastroProdutos extends JPanel {
 	 * Create the panel.
 	 */
 	public TelaCadastroProdutos() {
-		setBackground(new Color(244, 247, 246));
+		setBackground(new Color(245, 235, 220));
 		setLayout(new MigLayout("", "[grow][grow][grow][grow][grow][grow][grow]", "[grow][grow][grow][::20px,grow 20][::20px,grow 20][::20px,grow 20][::20px,grow 20][::20px,grow][::20px,grow 20][][grow][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Cadastre os produtos");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("Alef", Font.BOLD, 20));
 		add(lblNewLabel, "cell 1 1 5 1,alignx center");
 		
 		table = new JTable();
@@ -49,7 +49,7 @@ public class TelaCadastroProdutos extends JPanel {
 		add(scrollPane, "cell 5 3 1 8,grow");
 		
 		JLabel lblNewLabel_1 = new JLabel("Produto:");
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		lblNewLabel_1.setFont(new Font("Alef", Font.PLAIN, 12));
 		add(lblNewLabel_1, "cell 1 4,growx");
 		
 		tfProduto = new JTextField();
@@ -57,7 +57,7 @@ public class TelaCadastroProdutos extends JPanel {
 		tfProduto.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Preço kg/uni:");
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		lblNewLabel_2.setFont(new Font("Alef", Font.PLAIN, 12));
 		add(lblNewLabel_2, "cell 1 5,growx");
 		
 		tfPreco = new JTextField();
@@ -65,7 +65,7 @@ public class TelaCadastroProdutos extends JPanel {
 		tfPreco.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Quantidade:");
-		lblNewLabel_3.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		lblNewLabel_3.setFont(new Font("Alef", Font.PLAIN, 12));
 		add(lblNewLabel_3, "cell 1 6,growx");
 		
 		tfQuantidade = new JTextField();
@@ -73,18 +73,31 @@ public class TelaCadastroProdutos extends JPanel {
 		tfQuantidade.setColumns(10);
 		
 		btAdicionar = new JButton("Adicionar");
-		btAdicionar.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btAdicionar.setForeground(new Color(255, 255, 255));
+		btAdicionar.setFont(new Font("Alef", Font.BOLD, 10));
+		btAdicionar.setBackground(new Color(8, 69, 145));
+		btAdicionar.setBorderPainted(false);
 		add(btAdicionar, "cell 1 8,growx");
 		
 		btRemover = new JButton("Remover");
-		btRemover.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btRemover.setForeground(new Color(255, 255, 255));
+		btRemover.setFont(new Font("Alef", Font.BOLD, 10));
+		btRemover.setBackground(new Color(8, 69, 145));
+		btRemover.setBorderPainted(false);
 		add(btRemover, "cell 2 8,growx");
 		
 		btEditar = new JButton("Editar");
-		btEditar.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btEditar.setForeground(new Color(255, 255, 255));
+		btEditar.setFont(new Font("Alef", Font.BOLD, 10));
+        btEditar.setBackground(new Color(8, 69, 145));
+        btEditar.setBorderPainted(false);
 		add(btEditar, "cell 3 8,growx");
 		
 		btVoltar = new JButton("Voltar");
+		btVoltar.setForeground(new Color(255, 255, 255));
+		btVoltar.setFont(new Font("Alef", Font.BOLD, 10));
+		btVoltar.setBackground(new Color(8, 69, 145));
+		btVoltar.setBorderPainted(false);
 		add(btVoltar, "cell 2 9");
 
 	}
