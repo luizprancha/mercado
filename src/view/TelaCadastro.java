@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class TelaCadastro extends JPanel {
 
@@ -35,7 +36,13 @@ public class TelaCadastro extends JPanel {
         add(tfCpf, "cell 2 2,growx");
 
         rbSim = new JRadioButton("Sim");
+        rbSim.setFont(new Font("Alef", Font.PLAIN, 15));
+        rbSim.setForeground(new Color(255, 255, 255));
+        rbSim.setBackground(new Color(8, 69, 145));
         rbNao = new JRadioButton("Não");
+        rbNao.setFont(new Font("Alef", Font.PLAIN, 15));
+        rbNao.setForeground(new Color(255, 255, 255));
+        rbNao.setBackground(new Color(8, 69, 145));
 
         ButtonGroup grupo = new ButtonGroup();
         grupo.add(rbSim);
@@ -65,8 +72,14 @@ public class TelaCadastro extends JPanel {
 
     public JTextField getTfNome() { return tfNome; }
     public JTextField getTfCpf() { return tfCpf; }
-    public JButton getbtnCadastrar() { return btnCadastrar; }
     public JRadioButton getRbSim() { return rbSim; }
     public JRadioButton getRbNao() { return rbNao; }
-    public JButton getbtnVoltar() { return btnVoltar; }
+    
+    public void voltar (ActionListener acao) {
+    	btnVoltar.addActionListener(acao);
+	}
+    
+    public void cadastrar (ActionListener acao) {
+    	btnCadastrar.addActionListener(acao);
+	}
 }

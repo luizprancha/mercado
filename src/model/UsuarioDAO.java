@@ -22,7 +22,7 @@ public class UsuarioDAO {
         }
     }
 
-    public static Usuario buscar(String nome, String cpf) {
+    public static Usuario buscarusuario(String nome, String cpf) {
 
         String sql = "SELECT * FROM usuarios WHERE nome = ? AND cpf = ?";
 

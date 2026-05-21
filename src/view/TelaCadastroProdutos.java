@@ -7,6 +7,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -104,11 +106,23 @@ public class TelaCadastroProdutos extends JPanel {
 	public JTextField getTfProduto() { return tfProduto; }
     public JTextField getTfPreco() { return tfPreco; }
     public JTextField getTfQuantidade() { return tfQuantidade; }
-    public JButton getbtAdicionar() { return btAdicionar; }
-    public JButton getbtRemover() { return btRemover; }
-    public JButton getbtEditar() { return btEditar; }
     public JTable gettable() {return table; }
     public JScrollPane getscrollPane() {return scrollPane; }
-    public JButton getbtVoltar() { return btVoltar; }
+    
+    public void adicionar (ActionListener acao) {
+    	btAdicionar.addActionListener(acao);
+	}
+    
+    public void remover (ActionListener acao) {
+    	btRemover.addActionListener(acao);
+	}
+    
+    public void editar (ActionListener acao) {
+    	btEditar.addActionListener(acao);
+	}
+    
+    public void voltar (ActionListener acao) {
+    	btVoltar.addActionListener(acao);
+	}
 
 }

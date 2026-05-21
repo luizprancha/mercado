@@ -19,13 +19,36 @@ public class CadastroController {
 
     private void initEventos() {
 
-        view.getbtnCadastrar().addActionListener(e -> {
+        view.cadastrar(e -> {
 
-            String nome = view.getTfNome().getText();
-            String cpf = view.getTfCpf().getText();
+            String nome = view.getTfNome().getText().trim();
+            String cpf = view.getTfCpf().getText().trim();
 
             if (nome.isEmpty() || cpf.isEmpty()) {
                 JOptionPane.showMessageDialog(view, "Preencha todos os campos!");
+                return;
+            }
+
+            for (char c : nome.toCharArray()) {
+
+                if (Character.isDigit(c)) {
+                    JOptionPane.showMessageDialog(view, "O nome não pode conter números!");
+                    return;
+                }
+            }
+
+            try {
+
+                Long.parseLong(cpf);
+
+            } catch (NumberFormatException ex) {
+
+                JOptionPane.showMessageDialog(view, "O CPF deve conter apenas números!");
+                return;
+            }
+
+            if (cpf.length() != 11) {
+                JOptionPane.showMessageDialog(view, "O CPF deve ter 11 dígitos!");
                 return;
             }
 
@@ -37,6 +60,7 @@ public class CadastroController {
             boolean admin = view.getRbSim().isSelected();
 
             try {
+
                 Usuario user = new Usuario(nome, cpf, admin);
                 UsuarioDAO.salvar(user);
 
@@ -47,11 +71,14 @@ public class CadastroController {
                 Navegador.trocarTela(telaLogin);
 
             } catch (Exception ex) {
+
                 JOptionPane.showMessageDialog(view, "Erro ao cadastrar usuário!");
                 ex.printStackTrace();
             }
         });
-        view.getbtnVoltar().addActionListener(e -> {
+
+        view.voltar(e -> {
+
             TelaLogin tela = new TelaLogin();
             new LoginController(tela, frame);
             Navegador.trocarTela(tela);

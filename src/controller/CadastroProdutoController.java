@@ -2,11 +2,8 @@ package controller;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 import model.*;
 import view.*;
-
-import java.util.List;
 
 public class CadastroProdutoController {
 
@@ -22,24 +19,45 @@ public class CadastroProdutoController {
     }
 
     private void initEventos() {
+    	
+    	
 
         // ➕ ADICIONAR
-        view.getbtAdicionar().addActionListener(e -> {
+        view.adicionar(e -> {
 
-            try {
-                String nome = view.getTfProduto().getText();
+        	try {
+
+                String nome = view.getTfProduto().getText().trim();
                 double preco = Double.parseDouble(view.getTfPreco().getText());
                 int quantidade = Integer.parseInt(view.getTfQuantidade().getText());
 
-                ProdutoDAO.salvar(new Produto(nome, preco, quantidade));
+                // VERIFICA SE JÁ EXISTE PRODUTO COM ESSE NOME
+                for (Produto p : ProdutoDAO.listar()) {
+
+                    if (p.getNome().equalsIgnoreCase(nome)) {
+
+                        JOptionPane.showMessageDialog(view, "Já existe um produto com esse nome!");
+                        return;
+                    }
+                }
+
+                Produto produto = new Produto(nome, preco, quantidade);
+
+                ProdutoDAO.salvar(produto);
 
                 JOptionPane.showMessageDialog(view, "Produto cadastrado!");
 
-                limparCampos();
                 carregarTabela();
+                limparCampos();
+
+            } catch (NumberFormatException ex) {
+
+                JOptionPane.showMessageDialog(view, "Preço e quantidade devem ser números!");
 
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(view, "Erro!");
+
+                JOptionPane.showMessageDialog(view, "Erro ao cadastrar produto!");
+                ex.printStackTrace();
             }
         });
 
@@ -59,9 +77,9 @@ public class CadastroProdutoController {
             }
         });
 
-        view.getbtEditar().addActionListener(e -> {
+        view.editar(e -> {
 
-            int linha = view.gettable().getSelectedRow();
+        	int linha = view.gettable().getSelectedRow();
 
             if (linha == -1) {
                 JOptionPane.showMessageDialog(view, "Selecione um produto!");
@@ -89,7 +107,7 @@ public class CadastroProdutoController {
             }
         });
 
-        view.getbtRemover().addActionListener(e -> {
+        view.remover(e -> {
 
             int linha = view.gettable().getSelectedRow();
 
@@ -108,7 +126,7 @@ public class CadastroProdutoController {
             limparCampos();
         });
 
-        view.getbtVoltar().addActionListener(e -> {
+        view.voltar(e -> {
             TelaLogin tela = new TelaLogin();
             new LoginController(tela, frame);
             Navegador.trocarTela(tela);
@@ -117,13 +135,14 @@ public class CadastroProdutoController {
 
     private void carregarTabela() {
 
-        DefaultTableModel model = (DefaultTableModel) view.gettable().getModel();
-        model.setRowCount(0);
+        DefaultTableModel modelo =
+                (DefaultTableModel) view.gettable().getModel();
 
-        List<Produto> lista = ProdutoDAO.listar();
+        modelo.setRowCount(0);
 
-        for (Produto p : lista) {
-            model.addRow(new Object[]{
+        for (Produto p : ProdutoDAO.listar()) {
+
+            modelo.addRow(new Object[] {
                     p.getId(),
                     p.getNome(),
                     p.getPreco(),

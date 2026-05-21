@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -76,10 +78,19 @@ public class TelaProdutos extends JPanel {
 	}
 	
 	public JTable gettable() { return table; }
-	public JScrollPane getscrollPane() { return scrollPane; }
-	public JButton getbtAdicionar() {return btAdicionar; }
-	public JButton getbtCarrinho() { return btCarrinho; }
-	public JTextField gettfQuantidade() {return tfQuantidade; }
-	public JButton getbtVoltar() { return btVoltar; }
+	public JScrollPane getscrollPane() { return scrollPane; } 
+	public JTextField gettfQuantidade() {return tfQuantidade; } 
+	
+	public void voltar (ActionListener acao) {
+		btVoltar.addActionListener(acao);
+	}
+	
+	public void carrinho (ActionListener acao) {
+		btCarrinho.addActionListener(acao);
+	}
+	
+	public void adicionar (ActionListener acao) {
+		btAdicionar.addActionListener(acao);
+	}
 
 }

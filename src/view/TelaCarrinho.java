@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
@@ -59,7 +61,7 @@ public class TelaCarrinho extends JPanel {
 		btRemover.setBorderPainted(false);
 		add(btRemover, "cell 3 5,growx");
 		
-		btNota = new JButton("Emitir nota fiscal e pagar");
+		btNota = new JButton("Emitir nota fiscal");
 		btNota.setForeground(new Color(255, 255, 255));
 		btNota.setFont(new Font("Alef", Font.BOLD, 10));
 		btNota.setBackground(new Color(8, 69, 145));
@@ -82,12 +84,24 @@ public class TelaCarrinho extends JPanel {
 	}
 	
 	public JScrollPane getscrollPane() {return scrollPane; }
-	public JTable gettable() { return table; }
-	public JButton getbtRemover() { return btRemover; }
-	public JButton getbtNota() { return btNota; }
-	public JButton getbtPagar() { return btPagar; }
-	public JButton getbtVoltar() { return btVoltar; }
+	public JTable gettable() { return table; }  
 	public JLabel gettotal() { return total; }
+	
+	public void remover (ActionListener acao) {
+		btRemover.addActionListener(acao);
+	}
+	
+	public void nota (ActionListener acao) {
+		btNota.addActionListener(acao);
+	}
+	
+	public void pagar (ActionListener acao) {
+		btPagar.addActionListener(acao);
+	}
+	
+	public void voltar (ActionListener acao) {
+		btVoltar.addActionListener(acao);
+	}
 		
 	}
 	

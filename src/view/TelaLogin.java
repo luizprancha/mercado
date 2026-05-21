@@ -5,6 +5,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -68,6 +69,12 @@ public class TelaLogin extends JPanel {
 
     public JTextField getTfNome() { return tfNome; }
     public JTextField getTfCpf() { return tfCpf; }
-    public JButton getBtEntrar() { return btEntrar; }
-    public JButton getBtCadastrar() { return btCadastrar; }
+    
+    public void entrar (ActionListener acao) {
+    	btEntrar.addActionListener(acao);
+	}
+    
+    public void cadastrar (ActionListener acao) {
+    	btCadastrar.addActionListener(acao);
+	}
 }

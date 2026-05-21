@@ -21,12 +21,12 @@ public class LoginController {
 
     private void initEventos() {
 
-        view.getBtEntrar().addActionListener(e -> {
+        view.entrar(e -> {
 
             String nome = view.getTfNome().getText();
             String cpf = view.getTfCpf().getText();
 
-            Usuario usuario = UsuarioDAO.buscar(nome, cpf);
+            Usuario usuario = UsuarioDAO.buscarusuario(nome, cpf);
 
             if (usuario == null) {
                 JOptionPane.showMessageDialog(view, "Usuário não encontrado!");
@@ -51,7 +51,7 @@ public class LoginController {
             }
         });
 
-        view.getBtCadastrar().addActionListener(e -> {
+        view.cadastrar(e -> {
 
             TelaCadastro tela = new TelaCadastro();
             new CadastroController(tela, frame);

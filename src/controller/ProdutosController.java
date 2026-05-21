@@ -22,7 +22,7 @@ public class ProdutosController {
 
     private void initEventos() {
 
-        view.getbtAdicionar().addActionListener(e -> {
+        view.adicionar(e -> {
 
             int linha = view.gettable().getSelectedRow();
 
@@ -59,13 +59,13 @@ public class ProdutosController {
             }
         });
 
-        view.getbtCarrinho().addActionListener(e -> {
+        view.carrinho(e -> {
             TelaCarrinho tela = new TelaCarrinho();
             new CarrinhoController(tela, frame);
             Navegador.trocarTela(tela);
         });
 
-        view.getbtVoltar().addActionListener(e -> {
+        view.voltar(e -> {
             TelaLogin tela = new TelaLogin();
             new LoginController(tela, frame);
             Navegador.trocarTela(tela);

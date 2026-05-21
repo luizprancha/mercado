@@ -3,12 +3,14 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 
 public class Janela extends JFrame {
 
     private JPanel contentPane;
 
     public Janela() {
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/logo.png")));
         setTitle("Sistema de Vendas MVC");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 600, 500);
