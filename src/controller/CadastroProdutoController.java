@@ -21,8 +21,6 @@ public class CadastroProdutoController {
     private void initEventos() {
     	
     	
-
-        // ➕ ADICIONAR
         view.adicionar(e -> {
 
         	try {
@@ -31,7 +29,6 @@ public class CadastroProdutoController {
                 double preco = Double.parseDouble(view.getTfPreco().getText());
                 int quantidade = Integer.parseInt(view.getTfQuantidade().getText());
 
-                // VERIFICA SE JÁ EXISTE PRODUTO COM ESSE NOME
                 for (Produto p : ProdutoDAO.listar()) {
 
                     if (p.getNome().equalsIgnoreCase(nome)) {

@@ -24,9 +24,6 @@ public class TelaCarrinho extends JPanel {
 	private JButton btVoltar;
 	private JLabel total;
 
-	/**
-	 * Create the panel.
-	 */
 	public TelaCarrinho() {
 		setBackground(new Color(245, 235, 220));
 		setLayout(new MigLayout("", "[grow][grow][grow][grow][grow]", "[grow][grow][grow][grow 20][::20px,grow 20][::20px,grow 20][::20px,grow 20][::20px,grow 20][][grow][grow]"));

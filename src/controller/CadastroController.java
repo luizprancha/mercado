@@ -30,7 +30,6 @@ public class CadastroController {
             }
 
             for (char c : nome.toCharArray()) {
-
                 if (Character.isDigit(c)) {
                     JOptionPane.showMessageDialog(view, "O nome não pode conter números!");
                     return;
@@ -38,11 +37,8 @@ public class CadastroController {
             }
 
             try {
-
                 Long.parseLong(cpf);
-
             } catch (NumberFormatException ex) {
-
                 JOptionPane.showMessageDialog(view, "O CPF deve conter apenas números!");
                 return;
             }
@@ -62,7 +58,17 @@ public class CadastroController {
             try {
 
                 Usuario user = new Usuario(nome, cpf, admin);
-                UsuarioDAO.salvar(user);
+
+                boolean cadastrado = UsuarioDAO.salvar(user);
+
+                if (!cadastrado) {
+                    JOptionPane.showMessageDialog(
+                            view,
+                            "Erro: já existe um usuário cadastrado com este CPF!",
+                            "CPF Duplicado",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
                 JOptionPane.showMessageDialog(view, "Cadastro realizado com sucesso!");
 

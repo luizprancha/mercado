@@ -34,7 +34,6 @@ public class CarrinhoController {
 
     	        Produto produtoCarrinho = Carrinho.itens.get(linha);
 
-    	        // BUSCA ESTOQUE ATUAL
     	        int estoqueAtual = 0;
 
     	        for (Produto p : ProdutoDAO.listar()) {
@@ -45,7 +44,6 @@ public class CarrinhoController {
     	            }
     	        }
 
-    	        // DEVOLVE AO ESTOQUE
     	        int novoEstoque = estoqueAtual + produtoCarrinho.getQuantidade();
 
     	        ProdutoDAO.atualizarEstoque(
@@ -53,7 +51,6 @@ public class CarrinhoController {
     	                novoEstoque
     	        );
 
-    	        // REMOVE DO CARRINHO
     	        Carrinho.remover(linha);
 
     	        carregarCarrinho();

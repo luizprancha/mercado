@@ -26,9 +26,6 @@ public class TelaCadastroProdutos extends JPanel {
 	private JScrollPane scrollPane;
 	private JButton btVoltar;
 
-	/**
-	 * Create the panel.
-	 */
 	public TelaCadastroProdutos() {
 		setBackground(new Color(245, 235, 220));
 		setLayout(new MigLayout("", "[grow][grow][grow][grow][grow][grow][grow]", "[grow][grow][grow][::20px,grow 20][::20px,grow 20][::20px,grow 20][::20px,grow 20][::20px,grow][::20px,grow 20][][grow][grow]"));
